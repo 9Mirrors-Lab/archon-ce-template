@@ -105,7 +105,6 @@ integrate_project() {
         "workflows"
         "commands"
         "scripts"
-        "cursor-rules"
     )
     
     for file_or_dir in "${template_files[@]}"; do
@@ -142,6 +141,14 @@ integrate_project() {
             echo -e "${YELLOW}Warning: $script not found${NC}"
         fi
     done
+    
+    # Copy cursor rules to .cursor/rules
+    if [ -d "$TEMPLATE_ROOT/.cursor/rules" ]; then
+        echo -e "${BLUE}Setting up Cursor IDE rules...${NC}"
+        mkdir -p "$project_path/.cursor/rules"
+        cp -r "$TEMPLATE_ROOT/.cursor/rules"/* "$project_path/.cursor/rules/"
+        echo -e "${BLUE}Copied:${NC} .cursor/rules/*"
+    fi
     
     # Analyze existing codebase
     echo -e "${BLUE}Analyzing existing codebase...${NC}"
@@ -245,7 +252,7 @@ This project has been integrated with the Archon PRP (Project Requirements Docum
 - `scripts/` - Template management utilities
 
 ### Cursor Rules
-- `cursor-rules/` - IDE-specific configuration
+- `.cursor/rules/` - Cursor IDE rules for enhanced workflow
 
 ## Next Steps
 
@@ -265,7 +272,7 @@ The `enforce-prp-workflow.sh` script will:
 
 - Edit `templates/prp-base.md` to customize the base template
 - Modify `workflows/` scripts to adjust the workflow
-- Update `cursor-rules/` for your IDE preferences
+- Update `.cursor/rules/` for your IDE preferences
 
 ## Support
 

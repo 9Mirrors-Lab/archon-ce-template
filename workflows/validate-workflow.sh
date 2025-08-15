@@ -27,7 +27,7 @@ if [ ${#MISSING_FILES[@]} -eq 0 ]; then
     echo "   • Project context: INITIAL.md"
     echo "   • Implementation PRP: PRP.md"
     echo "   • Project structure: PROJECT_STRUCTURE.md"
-    echo "   • Cursor rules: .cursor-rules*.mdc files"
+    echo "   • Cursor rules: .cursor/rules/*.mdc files"
     echo ""
     echo "🚀 You're ready to begin implementation!"
 else

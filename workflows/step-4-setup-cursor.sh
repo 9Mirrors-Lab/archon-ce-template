@@ -5,26 +5,29 @@
 echo "⚙️  Step 4: Setting up Cursor IDE rules and project structure..."
 echo ""
 
-# Check if cursor-rules directory exists
-if [ -d "cursor-rules" ]; then
+# Check if .cursor/rules directory exists
+if [ -d ".cursor/rules" ]; then
     echo "   📁 Cursor rules directory found"
     
-    # Copy cursor rules to project root
-    if [ -f "cursor-rules/template-automation.mdc" ]; then
-        cp cursor-rules/template-automation.mdc .cursor-rules.mdc
-        echo "   ✅ Copied: .cursor-rules.mdc"
+    # Create .cursor/rules directory in project if it doesn't exist
+    mkdir -p .cursor/rules
+    
+    # Copy cursor rules to project .cursor/rules directory
+    if [ -f ".cursor/rules/template-automation.mdc" ]; then
+        cp .cursor/rules/template-automation.mdc .cursor/rules/
+        echo "   ✅ Copied: .cursor/rules/template-automation.mdc"
     fi
     
     # Copy other cursor rules if they exist
-    for rule_file in cursor-rules/*.mdc; do
+    for rule_file in .cursor/rules/*.mdc; do
         if [ -f "$rule_file" ]; then
             filename=$(basename "$rule_file")
-            cp "$rule_file" ".cursor-rules-${filename}"
-            echo "   ✅ Copied: .cursor-rules-${filename}"
+            cp "$rule_file" ".cursor/rules/${filename}"
+            echo "   ✅ Copied: .cursor/rules/${filename}"
         fi
     done
 else
-    echo "   ⚠️  No cursor-rules directory found"
+    echo "   ⚠️  No .cursor/rules directory found"
 fi
 
 # Create project structure hints
