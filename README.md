@@ -62,7 +62,7 @@ archon-ce-template/
 ├── workflows/                    # Automated workflow scripts
 ├── commands/                     # CLI commands for PRP operations
 ├── scripts/                      # Template management scripts
-├── cursor-rules/                 # AI agent instructions
+├── .cursor/rules/                 # AI agent instructions
 ├── docs/                         # Comprehensive documentation
 ├── examples/                     # Sample project structures
 └── project-structure/            # Base project layouts
@@ -206,7 +206,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 🆘 **Support**
 
-- **AI Agent Instructions** - See `cursor-rules/` directory
+- **AI Agent Instructions** - See `.cursor/rules/` directory
 - **Script Documentation** - See `scripts/README.md`
 - **Workflow Examples** - See `docs/` directory
 - **Template Customization** - See `templates/` directory
