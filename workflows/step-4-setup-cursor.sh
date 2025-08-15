@@ -1,1 +1,60 @@
-#!/bin/bashn# step-4-setup-cursor.sh - Setup Cursor IDE rules for enhanced workflownnecho "🎯 Step 4: Setting up Cursor IDE rules..."nn# Check if cursor-rules directory existsnif [ ! -d "cursor-rules" ]; thenn    echo "❌ ERROR: cursor-rules directory not found!"n    echo "   Cursor rules should be copied from template"n    exit 1nfinn# Create .cursor directory in project root if it doesn't existnmkdir -p ".cursor/rules"necho "   📁 Created .cursor/rules directory"nn# Copy Cursor rules to projectncp cursor-rules/*.mdc .cursor/rules/nnecho "   📋 Copied Cursor rules:"necho "      • create-prp.mdc - PRP creation rules"necho "      • execute-prp.mdc - PRP execution rules"necho "      • project-rules.mdc - Global context engineering rules"necho ""necho "   🎯 Cursor IDE now has:"necho "      • Enhanced PRP workflow integration"necho "      • Advanced validation loop guidance"necho "      • Implementation pattern enforcement"necho "      • Anti-pattern prevention"necho ""necho "✅ Step 4: Cursor IDE rules setup complete"necho ""necho "💡 Tip: Restart Cursor IDE to load the new rules"necho "   The rules will enhance your PRP workflow with:"necho "   • Automatic context validation"necho "   • Implementation guidance"necho "   • Quality assurance checks"n
+#!/bin/bash
+
+# step-4-setup-cursor.sh - Setup Cursor IDE rules and project structure
+
+echo "⚙️  Step 4: Setting up Cursor IDE rules and project structure..."
+echo ""
+
+# Check if cursor-rules directory exists
+if [ -d "cursor-rules" ]; then
+    echo "   📁 Cursor rules directory found"
+    
+    # Copy cursor rules to project root
+    if [ -f "cursor-rules/template-automation.mdc" ]; then
+        cp cursor-rules/template-automation.mdc .cursor-rules.mdc
+        echo "   ✅ Copied: .cursor-rules.mdc"
+    fi
+    
+    # Copy other cursor rules if they exist
+    for rule_file in cursor-rules/*.mdc; do
+        if [ -f "$rule_file" ]; then
+            filename=$(basename "$rule_file")
+            cp "$rule_file" ".cursor-rules-${filename}"
+            echo "   ✅ Copied: .cursor-rules-${filename}"
+        fi
+    done
+else
+    echo "   ⚠️  No cursor-rules directory found"
+fi
+
+# Create project structure hints
+echo "   🏗️  Creating project structure hints..."
+
+cat > PROJECT_STRUCTURE.md << 'STRUCTURE_EOF'
+# Project Structure Guide
+
+This document provides guidance for implementing the PRP requirements.
+
+## Implementation Order
+1. **Core Infrastructure** - Set up basic project structure
+2. **Data Models** - Define data structures and schemas
+3. **Core Logic** - Implement main business logic
+4. **API Layer** - Create interfaces and endpoints
+5. **UI Components** - Build user interface elements
+6. **Integration** - Connect all components
+7. **Testing** - Validate functionality
+8. **Documentation** - Complete project documentation
+
+## Key Files to Create
+- [ ] Core implementation files
+- [ ] Configuration files
+- [ ] Test files
+- [ ] Documentation files
+
+## Next Steps
+Review the generated PRP.md and begin implementation following the blueprint.
+STRUCTURE_EOF
+
+echo "   ✅ Created: PROJECT_STRUCTURE.md"
+echo ""
+echo "✅ Step 4: Cursor IDE setup completed successfully"
