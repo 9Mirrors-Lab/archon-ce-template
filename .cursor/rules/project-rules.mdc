@@ -1,1 +1,309 @@
----ndescription: Global Rules for Context Engineering and PRP Workflownglobs: ["**/*.md", "**/*.mdx", "**/*.txt", "**/*.py", "**/*.js", "**/*.ts", "**/*.rs", "**/*.go", "**/*.java"]nalwaysApply: truen---nn# Template Generator - Global Rules for Context EngineeringnnThis file contains the global rules and principles that apply to ALL context engineering work, regardless of what template or project you're building. These rules never change and should be followed consistently.nn## 🔄 Context Engineering Core Principlesnn**IMPORTANT: These principles apply to ALL context engineering work:**nn### PRP Framework Workflown- **Always start with INITIAL.md** - Define requirements before generating PRPsn- **Use the PRP pattern**: INITIAL.md → `/create-prp INITIAL.md` → `/execute-prp PRPs/filename.md`n- **Follow validation loops** - Each PRP must include executable validation stepsn- **Context is King** - Include ALL necessary documentation, examples, and patternsnn### Research Methodologyn- **Web search first** - Always do extensive web research before implementationn- **Documentation deep dive** - Study official docs, best practices, and common patternsn- **Pattern extraction** - Identify reusable patterns and architectural conventionsn- **Gotcha documentation** - Document common pitfalls and edge casesnn## 📚 Project Awareness & Contextnn- **Use consistent naming conventions** and file structure patternsn- **Follow established directory organization** patternsn- **Leverage examples extensively** - Study existing patterns before creating new onesnn## 🧱 Code Structure & Modularitynn- **Never create files longer than 500 lines** - Split into modules when approaching limitn- **Organize code into clearly separated modules** grouped by feature or responsibilityn- **Use clear, consistent imports** (prefer relative imports within packages)n- **Follow established coding standards** and conventionsnn## ✅ Task Managementnn- **Break complex tasks into smaller steps** with clear completion criterian- **Mark tasks complete immediately** after finishing themn- **Update task status in real-time** as work progressesnn## 📎 Documentation Standardsnn- **Write comprehensive documentation** for every componentn- **Include clear usage examples** with working coden- **Document all gotchas and edge cases** to prevent common errorsn- **Maintain up-to-date references** to external documentationnn## 🔍 Research Standardsnnn- **Web search is your best friend** - Use it extensively for technology researchn- **Study official documentation thoroughly** before implementationn- **Research established patterns** and best practices for the technologyn- **Pattern extraction** - Identify reusable patterns and architectural conventionsn- **Gotcha documentation** - Document common pitfalls and edge casesnn## 🎯 Implementation Standardsnn- **Follow the PRP workflow religiously** - Don't skip stepsn- **Always validate before proceeding** to the next stepn- **Use existing patterns as templates** rather than creating from scratchn- **Include comprehensive error handling** in all implementationsnn## 🚫 Anti-Patterns to Always Avoidnn- ❌ Don't skip research - Always understand the technology deeply firstn- ❌ Don't create generic solutions - Always specialize for the specific use casen- ❌ Don't ignore validation - Every step must include verificationn- ❏ Don't assume knowledge - Document everything explicitlyn- ❌ Don't skip examples - Always include working code examplesn- ❌ Don't forget edge cases - Include error handling and gotchasnn## 🔧 Tool Usage Standardsnn- **Use web search extensively** for research and documentationn- **Follow established command patterns** for slash commandsn- **Use validation loops** to ensure quality at each stepnn## 🔄 Integration with Archon CE Templatenn**When using with Archon CE Template:**n1. **Advanced PRP template v3** provides implementation precisionn2. **Workflow scripts** ensure proper execution sequencen3. **Cursor rules** enhance IDE integration and workflown4. **Language hints** provide technology-specific guidancen5. **Validation loops** ensure quality at every stepnn## 🎯 PRP v3 Standardsnn**Advanced template requirements:**n- **Implementation-focused** with specific task breakdownsn- **Pattern references** with exact file paths and methodsn- **Validation loops** with 4 comprehensive levelsn- **Anti-patterns** documentation to prevent common mistakesn- **Context completeness** validation before proceedingn- **Integration points** specification for system-wide changesnn## 🚀 Workflow Integrationnn**Combined approach benefits:**n- **Archon workflow** provides structure and automationn- **Advanced PRP template** ensures implementation precisionn- **Cursor rules** enhance developer experiencen- **Language hints** provide technology guidancen- **Validation loops** maintain quality standardsnn## 📋 Quality Gatesnn**Every PRP must pass:**n- [ ] Context completeness validationn- [ ] Implementation task specificityn- [ ] Pattern reference accuracyn- [ ] Validation loop completenessn- [ ] Anti-pattern documentationn- [ ] Success criteria measurabilitynn## 🔍 Research Integrationnn**Web search integration:**n- **Technology research** before implementationn- **Best practice documentation** for patternsn- **Common pitfall identification** for gotchasn- **Performance optimization** researchn- **Security consideration** documentationnn## 🎯 Success Metricsnn**Context engineering success when:**n- PRPs enable one-pass implementationn- All necessary context is documentedn- Patterns are clearly referencedn- Validation is comprehensiven- Anti-patterns are preventedn- Implementation quality is highnn## 🔄 Continuous Improvementnn**Always iterate and improve:**n- **Document lessons learned** from each implementationn- **Update pattern references** based on discoveriesn- **Enhance validation loops** based on failuresn- **Refine anti-patterns** based on mistakesn- **Improve context templates** based on gapsnn## 🚫 Final Anti-Patternsnn**Never allow these in any context engineering work:**n- ❌ Incomplete context documentationn- ❌ Generic implementation guidancen- ❌ Missing pattern referencesn- ❌ Incomplete validation stepsn- ❌ Vague success criterian- ❌ Missing error handling guidancennThese global rules apply regardless of whether you're generating templates, implementing features, or doing research. They form the foundation of effective context engineering work and ensure the highest quality PRPs and implementations.
+---
+alwaysApply: true
+---
+
+# Template Generator - Global Rules for Context Engineering
+
+This file contains the global rules and principles that apply to ALL context engineering work, regardless of what template or project you're building. These rules never change and should be followed consistently.
+
+## 🔄 Context Engineering Core Principles
+
+**IMPORTANT: These principles apply to ALL context engineering work:**
+
+### PRP Framework Workflow
+- **Always start with INITIAL.md** - Define requirements before generating PRPs
+- **Use the PRP pattern**: INITIAL.md → `/create-prp INITIAL.md` → `/execute-prp PRPs/filename.md`
+- **Follow validation loops** - Each PRP must include executable validation steps
+- **Context is King** - Include ALL necessary documentation, examples, and patterns
+
+### Research Methodology
+- **Web search first** - Always do extensive web research before implementation
+- **Documentation deep dive** - Study official docs, best practices, and common patterns
+- **Pattern extraction** - Identify reusable patterns and architectural conventions
+- **Gotcha documentation** - Document common pitfalls and edge cases
+
+## 📚 Project Awareness & Context
+
+- **Use consistent naming conventions** and file structure patterns
+- **Follow established directory organization** patterns
+- **Leverage examples extensively** - Study existing patterns before creating new ones
+
+## 🧱 Code Structure & Modularity
+
+- **Never create files longer than 500 lines** - Split into modules when approaching limit
+- **Organize code into clearly separated modules** grouped by feature or responsibility
+- **Use clear, consistent imports** (prefer relative imports within packages)
+- **Follow established coding standards** and conventions
+
+## ✅ Task Management
+
+- **Break complex tasks into smaller steps** with clear completion criteria
+- **Mark tasks complete immediately** after finishing them
+- **Update task status in real-time** as work progresses
+
+## 📎 Documentation Standards
+
+- **Write comprehensive documentation** for every component
+- **Include clear usage examples** with working code
+- **Document all gotchas and edge cases** to prevent common errors
+- **Maintain up-to-date references** to external documentation
+
+## 🔍 Research Standards
+
+- **Web search is your best friend** - Use it extensively for technology research
+- **Study official documentation thoroughly** before implementation
+- **Research established patterns** and best practices for the technology
+- **Pattern extraction** - Identify reusable patterns and architectural conventions
+- **Gotcha documentation** - Document common pitfalls and edge cases
+
+## 🎯 Implementation Standards
+
+- **Follow the PRP workflow religiously** - Don't skip steps
+- **Always validate before proceeding** to the next step
+- **Use existing patterns as templates** rather than creating from scratch
+- **Include comprehensive error handling** in all implementations
+
+## 🚫 Anti-Patterns to Always Avoid
+
+- ❌ Don't skip research - Always understand the technology deeply first
+- ❌ Don't create generic solutions - Always specialize for the specific use case
+- ❌ Don't ignore validation - Every step must include verification
+- ❌ Don't assume knowledge - Document everything explicitly
+- ❌ Don't skip examples - Always include working code examples
+- ❌ Don't forget edge cases - Include error handling and gotchas
+
+## 🔧 Tool Usage Standards
+
+- **Use web search extensively** for research and documentation
+- **Follow established command patterns** for slash commands
+- **Use validation loops** to ensure quality at each step
+
+## 🔄 Integration with Archon CE Template
+
+**When using with Archon CE Template:**
+1. **Advanced PRP template v3** provides implementation precision
+2. **Workflow scripts** ensure proper execution sequence
+3. **Cursor rules** enhance IDE integration and workflow
+4. **Language hints** provide technology-specific guidance
+5. **Validation loops** ensure quality at every step
+
+## 🎯 PRP v3 Standards
+
+**Advanced template requirements:**
+- **Implementation-focused** with specific task breakdowns
+- **Pattern references** with exact file paths and methods
+- **Validation loops** with 4 comprehensive levels
+- **Anti-patterns** documentation to prevent common mistakes
+- **Context completeness** validation before proceeding
+- **Integration points** specification for system-wide changes
+
+## 🚀 Workflow Integration
+
+**Combined approach benefits:**
+- **Archon workflow** provides structure and automation
+- **Advanced PRP template** ensures implementation precision
+- **Cursor rules** enhance developer experience
+- **Language hints** provide technology guidance
+- **Validation loops** maintain quality standards
+
+## 📋 Quality Gates
+
+**Every PRP must pass:**
+- [ ] Context completeness validation
+- [ ] Implementation task specificity
+- [ ] Pattern reference accuracy
+- [ ] Validation loop completeness
+- [ ] Anti-pattern documentation
+- [ ] Success criteria measurability
+
+## 🔍 Research Integration
+
+**Web search integration:**
+- **Technology research** before implementation
+- **Best practice documentation** for patterns
+- **Common pitfall identification** for gotchas
+- **Performance optimization** research
+- **Security consideration** documentation
+
+## 🎯 Success Metrics
+
+**Context engineering success when:**
+- PRPs enable one-pass implementation
+- All necessary context is documented
+- Patterns are clearly referenced
+- Validation is comprehensive
+- Anti-patterns are prevented
+- Implementation quality is high
+
+## 🔄 Continuous Improvement
+
+**Always iterate and improve:**
+- **Document lessons learned** from each implementation
+- **Update pattern references** based on discoveries
+- **Enhance validation loops** based on failures
+- **Refine anti-patterns** based on mistakes
+- **Improve context templates** based on gaps
+
+## 🚫 Final Anti-Patterns
+
+**Never allow these in any context engineering work:**
+- ❌ Incomplete context documentation
+- ❌ Generic implementation guidance
+- ❌ Missing pattern references
+- ❌ Incomplete validation steps
+- ❌ Vague success criteria
+- ❌ Missing error handling guidance
+
+These global rules apply regardless of whether you're generating templates, implementing features, or doing research. They form the foundation of effective context engineering work and ensure the highest quality PRPs and implementations.# Template Generator - Global Rules for Context Engineering
+
+This file contains the global rules and principles that apply to ALL context engineering work, regardless of what template or project you're building. These rules never change and should be followed consistently.
+
+## 🔄 Context Engineering Core Principles
+
+**IMPORTANT: These principles apply to ALL context engineering work:**
+
+### PRP Framework Workflow
+- **Always start with INITIAL.md** - Define requirements before generating PRPs
+- **Use the PRP pattern**: INITIAL.md → `/create-prp INITIAL.md` → `/execute-prp PRPs/filename.md`
+- **Follow validation loops** - Each PRP must include executable validation steps
+- **Context is King** - Include ALL necessary documentation, examples, and patterns
+
+### Research Methodology
+- **Web search first** - Always do extensive web research before implementation
+- **Documentation deep dive** - Study official docs, best practices, and common patterns
+- **Pattern extraction** - Identify reusable patterns and architectural conventions
+- **Gotcha documentation** - Document common pitfalls and edge cases
+
+## 📚 Project Awareness & Context
+
+- **Use consistent naming conventions** and file structure patterns
+- **Follow established directory organization** patterns
+- **Leverage examples extensively** - Study existing patterns before creating new ones
+
+## 🧱 Code Structure & Modularity
+
+- **Never create files longer than 500 lines** - Split into modules when approaching limit
+- **Organize code into clearly separated modules** grouped by feature or responsibility
+- **Use clear, consistent imports** (prefer relative imports within packages)
+- **Follow established coding standards** and conventions
+
+## ✅ Task Management
+
+- **Break complex tasks into smaller steps** with clear completion criteria
+- **Mark tasks complete immediately** after finishing them
+- **Update task status in real-time** as work progresses
+
+## 📎 Documentation Standards
+
+- **Write comprehensive documentation** for every component
+- **Include clear usage examples** with working code
+- **Document all gotchas and edge cases** to prevent common errors
+- **Maintain up-to-date references** to external documentation
+
+## 🔍 Research Standards
+
+- **Web search is your best friend** - Use it extensively for technology research
+- **Study official documentation thoroughly** before implementation
+- **Research established patterns** and best practices for the technology
+- **Pattern extraction** - Identify reusable patterns and architectural conventions
+- **Gotcha documentation** - Document common pitfalls and edge cases
+
+## 🎯 Implementation Standards
+
+- **Follow the PRP workflow religiously** - Don't skip steps
+- **Always validate before proceeding** to the next step
+- **Use existing patterns as templates** rather than creating from scratch
+- **Include comprehensive error handling** in all implementations
+
+## 🚫 Anti-Patterns to Always Avoid
+
+- ❌ Don't skip research - Always understand the technology deeply first
+- ❌ Don't create generic solutions - Always specialize for the specific use case
+- ❌ Don't ignore validation - Every step must include verification
+- ❌ Don't assume knowledge - Document everything explicitly
+- ❌ Don't skip examples - Always include working code examples
+- ❌ Don't forget edge cases - Include error handling and gotchas
+
+## 🔧 Tool Usage Standards
+
+- **Use web search extensively** for research and documentation
+- **Follow established command patterns** for slash commands
+- **Use validation loops** to ensure quality at each step
+
+## 🔄 Integration with Archon CE Template
+
+**When using with Archon CE Template:**
+1. **Advanced PRP template v3** provides implementation precision
+2. **Workflow scripts** ensure proper execution sequence
+3. **Cursor rules** enhance IDE integration and workflow
+4. **Language hints** provide technology-specific guidance
+5. **Validation loops** ensure quality at every step
+
+## 🎯 PRP v3 Standards
+
+**Advanced template requirements:**
+- **Implementation-focused** with specific task breakdowns
+- **Pattern references** with exact file paths and methods
+- **Validation loops** with 4 comprehensive levels
+- **Anti-patterns** documentation to prevent common mistakes
+- **Context completeness** validation before proceeding
+- **Integration points** specification for system-wide changes
+
+## 🚀 Workflow Integration
+
+**Combined approach benefits:**
+- **Archon workflow** provides structure and automation
+- **Advanced PRP template** ensures implementation precision
+- **Cursor rules** enhance developer experience
+- **Language hints** provide technology guidance
+- **Validation loops** maintain quality standards
+
+## 📋 Quality Gates
+
+**Every PRP must pass:**
+- [ ] Context completeness validation
+- [ ] Implementation task specificity
+- [ ] Pattern reference accuracy
+- [ ] Validation loop completeness
+- [ ] Anti-pattern documentation
+- [ ] Success criteria measurability
+
+## 🔍 Research Integration
+
+**Web search integration:**
+- **Technology research** before implementation
+- **Best practice documentation** for patterns
+- **Common pitfall identification** for gotchas
+- **Performance optimization** research
+- **Security consideration** documentation
+
+## 🎯 Success Metrics
+
+**Context engineering success when:**
+- PRPs enable one-pass implementation
+- All necessary context is documented
+- Patterns are clearly referenced
+- Validation is comprehensive
+- Anti-patterns are prevented
+- Implementation quality is high
+
+## 🔄 Continuous Improvement
+
+**Always iterate and improve:**
+- **Document lessons learned** from each implementation
+- **Update pattern references** based on discoveries
+- **Enhance validation loops** based on failures
+- **Refine anti-patterns** based on mistakes
+- **Improve context templates** based on gaps
+
+## 🚫 Final Anti-Patterns
+
+**Never allow these in any context engineering work:**
+- ❌ Incomplete context documentation
+- ❌ Generic implementation guidance
+- ❌ Missing pattern references
+- ❌ Incomplete validation steps
+- ❌ Vague success criteria
+- ❌ Missing error handling guidance
+
+These global rules apply regardless of whether you're generating templates, implementing features, or doing research. They form the foundation of effective context engineering work and ensure the highest quality PRPs and implementations.

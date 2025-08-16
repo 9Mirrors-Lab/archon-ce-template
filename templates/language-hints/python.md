@@ -1,1 +1,53 @@
-# Python Language Hintsnn## Common Patternsn- Use virtual environments (venv, conda)n- Follow PEP 8 style guidelinesn- Use type hints for function parametersn- Implement proper error handling with try/exceptn- Use requirements.txt or pyproject.toml for dependenciesnn## Project Structuren```nproject_name/n├── src/n│   └── project_name/n│       ├── __init__.pyn│       ├── core.pyn│       └── utils.pyn├── tests/n│   ├── __init__.pyn│   ├── test_core.pyn│   └── test_utils.pyn├── docs/n├── requirements.txtn├── pyproject.tomln├── README.mdn└── .gitignoren```nn## Common Dependenciesn- pytest for testingn- black for code formattingn- flake8 for lintingn- mypy for type checkingn- python-dotenv for environment variablesnn## Testing Patternsn```pythonnimport pytestnfrom project_name.core import some_functionnndef test_some_function():n    result = some_function("test_input")n    assert result == "expected_output"n```nn## Error Handling Patternsn```pythonntry:n    result = risky_operation()nexcept SpecificError as e:n    logger.error(f"Operation failed: {e}")n    raise CustomError("User-friendly message") from en```
+# Python Language Hints
+
+## Common Patterns
+- Use virtual environments (venv, conda)
+- Follow PEP 8 style guidelines
+- Use type hints for function parameters
+- Implement proper error handling with try/except
+- Use requirements.txt or pyproject.toml for dependencies
+
+## Project Structure
+```
+project_name/
+├── src/
+│   └── project_name/
+│       ├── __init__.py
+│       ├── core.py
+│       └── utils.py
+├── tests/
+│   ├── __init__.py
+│   ├── test_core.py
+│   └── test_utils.py
+├── docs/
+├── requirements.txt
+├── pyproject.toml
+├── README.md
+└── .gitignore
+```
+
+## Common Dependencies
+- pytest for testing
+- black for code formatting
+- flake8 for linting
+- mypy for type checking
+- python-dotenv for environment variables
+
+## Testing Patterns
+```python
+import pytest
+from project_name.core import some_function
+
+def test_some_function():
+    result = some_function("test_input")
+    assert result == "expected_output"
+```
+
+## Error Handling Patterns
+```python
+try:
+    result = risky_operation()
+except SpecificError as e:
+    logger.error(f"Operation failed: {e}")
+    raise CustomError("User-friendly message") from e
+```

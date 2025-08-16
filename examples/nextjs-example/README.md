@@ -1,1 +1,72 @@
-# Next.js E-commerce PlatformnnThis is an example project showing how to use the Archon CE Template system with a Next.js project.nn## Project Structurenn```nnextjs-example/n├── initial.md              # Project context (this file)n├── README.md              # Project documentationn├── package.json           # Node.js dependenciesn├── next.config.js         # Next.js configurationn├── tailwind.config.js     # Tailwind CSS configurationn├── tsconfig.json          # TypeScript configurationn├── app/                   # Next.js App Router directoryn│   ├── layout.tsx         # Root layout componentn│   ├── page.tsx           # Home page componentn│   ├── globals.css        # Global stylesn│   └── (routes)/          # Route groupsn│       ├── auth/          # Authentication routesn│       ├── products/      # Product routesn│       ├── cart/          # Shopping cart routesn│       └── admin/         # Admin dashboard routesn├── components/            # Reusable componentsn│   ├── ui/                # UI componentsn│   ├── forms/             # Form componentsn│   └── layout/            # Layout componentsn├── lib/                   # Utility librariesn│   ├── auth.ts            # Authentication utilitiesn│   ├── db.ts              # Database utilitiesn│   └── utils.ts           # General utilitiesn├── types/                 # TypeScript type definitionsn├── public/                # Static assetsn└── tests/                 # Test directoryn    ├── components/        # Component testsn    ├── pages/             # Page testsn    └── utils/             # Utility testsn```nn## How to Use This Examplenn1. **Copy the template structure** to your projectn2. **Edit initial.md** with your specific requirementsn3. **Run the PRP workflow**: `./workflows/enforce-prp-workflow.sh`n4. **Review the generated PRP** and customize as neededn5. **Begin implementation** following the PRP phasesnn## Key Featuresnn- **Next.js 13+** with App Router for modern React developmentn- **TypeScript** for type safety and better developer experiencen- **Tailwind CSS** for utility-first stylingn- **Prisma ORM** for type-safe database accessn- **Stripe integration** for payment processingn- **Responsive design** for mobile and desktopn- **SEO optimization** for better search engine visibilitynn## Next StepsnnAfter running the PRP workflow:n1. Review the generated `nextjs-example.prp`n2. Customize implementation phases and tasksn3. Set up your development environmentn4. Begin with Phase 1: Foundationn5. Follow the PRP validation gatesnn## Learn Morenn- [Archon CE Template Documentation](../../docs/)n- [Next.js Language Hints](../../templates/language-hints/nextjs.md)n- [Workflow Documentation](../../docs/workflow.md)n- [Usage Guide](../../docs/usage.md)
+# Next.js E-commerce Platform
+
+This is an example project showing how to use the Archon CE Template system with a Next.js project.
+
+## Project Structure
+
+```
+nextjs-example/
+├── initial.md              # Project context (this file)
+├── README.md              # Project documentation
+├── package.json           # Node.js dependencies
+├── next.config.js         # Next.js configuration
+├── tailwind.config.js     # Tailwind CSS configuration
+├── tsconfig.json          # TypeScript configuration
+├── app/                   # Next.js App Router directory
+│   ├── layout.tsx         # Root layout component
+│   ├── page.tsx           # Home page component
+│   ├── globals.css        # Global styles
+│   └── (routes)/          # Route groups
+│       ├── auth/          # Authentication routes
+│       ├── products/      # Product routes
+│       ├── cart/          # Shopping cart routes
+│       └── admin/         # Admin dashboard routes
+├── components/            # Reusable components
+│   ├── ui/                # UI components
+│   ├── forms/             # Form components
+│   └── layout/            # Layout components
+├── lib/                   # Utility libraries
+│   ├── auth.ts            # Authentication utilities
+│   ├── db.ts              # Database utilities
+│   └── utils.ts           # General utilities
+├── types/                 # TypeScript type definitions
+├── public/                # Static assets
+└── tests/                 # Test directory
+    ├── components/        # Component tests
+    ├── pages/             # Page tests
+    └── utils/             # Utility tests
+```
+
+## How to Use This Example
+
+1. **Copy the template structure** to your project
+2. **Edit initial.md** with your specific requirements
+3. **Run the PRP workflow**: `./workflows/enforce-prp-workflow.sh`
+4. **Review the generated PRP** and customize as needed
+5. **Begin implementation** following the PRP phases
+
+## Key Features
+
+- **Next.js 13+** with App Router for modern React development
+- **TypeScript** for type safety and better developer experience
+- **Tailwind CSS** for utility-first styling
+- **Prisma ORM** for type-safe database access
+- **Stripe integration** for payment processing
+- **Responsive design** for mobile and desktop
+- **SEO optimization** for better search engine visibility
+
+## Next Steps
+
+After running the PRP workflow:
+1. Review the generated `nextjs-example.prp`
+2. Customize implementation phases and tasks
+3. Set up your development environment
+4. Begin with Phase 1: Foundation
+5. Follow the PRP validation gates
+
+## Learn More
+
+- [Archon CE Template Documentation](../../docs/)
+- [Next.js Language Hints](../../templates/language-hints/nextjs.md)
+- [Workflow Documentation](../../docs/workflow.md)
+- [Usage Guide](../../docs/usage.md)

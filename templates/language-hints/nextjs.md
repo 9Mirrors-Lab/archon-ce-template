@@ -1,1 +1,72 @@
-# Next.js Language Hintsnn## Common Patternsn- Use TypeScript for type safetyn- Follow Next.js App Router conventionsn- Implement proper error boundariesn- Use React Server Components when possiblen- Follow mobile-first responsive designnn## Project Structuren```nproject_name/n├── app/n│   ├── layout.tsxn│   ├── page.tsxn│   ├── globals.cssn│   └── (routes)/n│       └── api/n├── components/n│   ├── ui/n│   └── shared/n├── lib/n├── public/n├── styles/n├── types/n├── package.jsonn├── next.config.jsn├── tailwind.config.jsn├── tsconfig.jsonn└── .gitignoren```nn## Common Dependenciesn- next for the frameworkn- react and react-domn- typescript for type safetyn- tailwindcss for stylingn- @types/node for Node.js typesn- eslint and prettier for code qualitynn## Component Patternsn```tsxnexport default function Component({ children }: { children: React.ReactNode }) {n  return <div className="container mx-auto">{children}</div>n}nn// Server Componentnasync function ServerComponent() {n  const data = await fetchData()n  return <div>{data}</div>n}nn// Client Componentn'use client'nfunction ClientComponent() {n  const [state, setState] = useState()n  return <button onClick={() => setState(!state)}>Toggle</button>n}```nn## API Route Patternsn```typescriptn// app/api/route.tsnexport async function GET() {n  try {n    const data = await getData()n    return Response.json({ data })n  } catch (error) {n    return Response.json({ error: "Failed to fetch data" }, { status: 500 })n  }n}```
+# Next.js Language Hints
+
+## Common Patterns
+- Use TypeScript for type safety
+- Follow Next.js App Router conventions
+- Implement proper error boundaries
+- Use React Server Components when possible
+- Follow mobile-first responsive design
+
+## Project Structure
+```
+project_name/
+├── app/
+│   ├── layout.tsx
+│   ├── page.tsx
+│   ├── globals.css
+│   └── (routes)/
+│       └── api/
+├── components/
+│   ├── ui/
+│   └── shared/
+├── lib/
+├── public/
+├── styles/
+├── types/
+├── package.json
+├── next.config.js
+├── tailwind.config.js
+├── tsconfig.json
+└── .gitignore
+```
+
+## Common Dependencies
+- next for the framework
+- react and react-dom
+- typescript for type safety
+- tailwindcss for styling
+- @types/node for Node.js types
+- eslint and prettier for code quality
+
+## Component Patterns
+```tsx
+export default function Component({ children }: { children: React.ReactNode }) {
+  return <div className="container mx-auto">{children}</div>
+}
+
+// Server Component
+async function ServerComponent() {
+  const data = await fetchData()
+  return <div>{data}</div>
+}
+
+// Client Component
+'use client'
+function ClientComponent() {
+  const [state, setState] = useState()
+  return <button onClick={() => setState(!state)}>Toggle</button>
+}
+```
+
+## API Route Patterns
+```typescript
+// app/api/route.ts
+export async function GET() {
+  try {
+    const data = await getData()
+    return Response.json({ data })
+  } catch (error) {
+    return Response.json({ error: "Failed to fetch data" }, { status: 500 })
+  }
+}
+```

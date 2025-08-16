@@ -1,1 +1,37 @@
-# Project: Rust CLI Data Processornn## Project ContextnLanguage: RustnFramework: None (CLI application)nPurpose: Build a high-performance command-line tool for processing large datasets with memory efficiency and parallel processingnn## Key Requirementsn- Process CSV, JSON, and XML filesn- Support for multiple input/output formatsn- Parallel processing for large datasetsn- Memory-efficient streaming for large filesn- Configurable data transformationsn- Progress reporting and loggingn- Error handling with detailed messagesn- Command-line argument parsingn- Configuration file supportn- Performance benchmarkingnn## Technical Constraintsn- Rust 1.70+n- Zero external runtime dependenciesn- Cross-platform compatibility (Windows, macOS, Linux)n- Memory usage < 100MB for 1GB filesn- Processing speed > 100MB/sn- Support for files up to 10GBn- UTF-8 encoding supportn- Error recovery and resumabilitynn## Success Criterian- Process 1GB file in < 10 secondsn- Memory usage stays under 100MBn- Zero data corruption or lossn- Cross-platform compatibility verifiedn- Comprehensive error handlingn- Performance benchmarks documentedn- User-friendly error messages
+# Project: Rust CLI Data Processor
+
+## Project Context
+Language: Rust
+Framework: None (CLI application)
+Purpose: Build a high-performance command-line tool for processing large datasets with memory efficiency and parallel processing
+
+## Key Requirements
+- Process CSV, JSON, and XML files
+- Support for multiple input/output formats
+- Parallel processing for large datasets
+- Memory-efficient streaming for large files
+- Configurable data transformations
+- Progress reporting and logging
+- Error handling with detailed messages
+- Command-line argument parsing
+- Configuration file support
+- Performance benchmarking
+
+## Technical Constraints
+- Rust 1.70+
+- Zero external runtime dependencies
+- Cross-platform compatibility (Windows, macOS, Linux)
+- Memory usage < 100MB for 1GB files
+- Processing speed > 100MB/s
+- Support for files up to 10GB
+- UTF-8 encoding support
+- Error recovery and resumability
+
+## Success Criteria
+- Process 1GB file in < 10 seconds
+- Memory usage stays under 100MB
+- Zero data corruption or loss
+- Cross-platform compatibility verified
+- Comprehensive error handling
+- Performance benchmarks documented
+- User-friendly error messages

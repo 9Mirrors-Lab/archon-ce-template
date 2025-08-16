@@ -1,1 +1,38 @@
-# Project: Next.js E-commerce Platformnn## Project ContextnLanguage: JavaScriptnFramework: Next.jsnPurpose: Build a modern e-commerce platform with user authentication, product management, and payment processingnn## Key Requirementsn- User authentication and account managementn- Product catalog with search and filteringn- Shopping cart and checkout processn- Payment integration (Stripe/PayPal)n- Admin dashboard for product managementn- Responsive design for mobile and desktopn- SEO optimization and performancen- Real-time inventory updatesn- Order tracking and managementn- Customer reviews and ratingsnn## Technical Constraintsn- Next.js 13+ with App Routern- TypeScript for type safetyn- Tailwind CSS for stylingn- PostgreSQL database with Prisma ORMn- Stripe for payment processingn- Vercel deployment (preferred)n- Mobile-first responsive designn- Lighthouse score > 90n- Core Web Vitals compliancenn## Success Criterian- Page load time < 3 secondsn- Mobile usability score > 90n- Successful payment processingn- Responsive design on all devicesn- SEO score > 90n- Zero critical security issuesn- 99.5% uptime maintained
+# Project: Next.js E-commerce Platform
+
+## Project Context
+Language: JavaScript
+Framework: Next.js
+Purpose: Build a modern e-commerce platform with user authentication, product management, and payment processing
+
+## Key Requirements
+- User authentication and account management
+- Product catalog with search and filtering
+- Shopping cart and checkout process
+- Payment integration (Stripe/PayPal)
+- Admin dashboard for product management
+- Responsive design for mobile and desktop
+- SEO optimization and performance
+- Real-time inventory updates
+- Order tracking and management
+- Customer reviews and ratings
+
+## Technical Constraints
+- Next.js 13+ with App Router
+- TypeScript for type safety
+- Tailwind CSS for styling
+- PostgreSQL database with Prisma ORM
+- Stripe for payment processing
+- Vercel deployment (preferred)
+- Mobile-first responsive design
+- Lighthouse score > 90
+- Core Web Vitals compliance
+
+## Success Criteria
+- Page load time < 3 seconds
+- Mobile usability score > 90
+- Successful payment processing
+- Responsive design on all devices
+- SEO score > 90
+- Zero critical security issues
+- 99.5% uptime maintained

@@ -1,1 +1,86 @@
-# Rust Language Hintsnn## Common Patternsn- Use Cargo for package managementn- Follow Rust naming conventionsn- Implement proper error handling with Result<T, E>n- Use Option<T> for nullable valuesn- Write comprehensive testsn- Use clap for CLI applicationsnn## Project Structuren```nproject_name/n├── src/n│   ├── main.rsn│   ├── lib.rsn│   └── modules/n│       ├── mod.rsn│       └── submodule.rsn├── tests/n│   └── integration_tests.rsn├── examples/n├── Cargo.tomln├── README.mdn└── .gitignoren```nn## Common Dependenciesn- tokio for async runtime (if needed)n- serde for serializationn- clap for command-line argument parsingn- anyhow for error handlingn- thiserror for custom error typesn- criterion for benchmarkingnn## Error Handling Patternsn```rustnuse anyhow::{Context, Result};nnpub fn process_data(input: &str) -> Result<String> {n    let parsed = input.parse::<i32>()n        .context("Failed to parse input as integer")?;n    Ok(parsed.to_string())n}```nn## Testing Patternsn```rustn#[cfg(test)]nmod tests {n    use super::*;nn    #[test]n    fn test_process_data() {n        let result = process_data("42").unwrap();n        assert_eq!(result, "42");n    }nn    #[test]n    fn test_process_data_invalid() {n        let result = process_data("invalid");n        assert!(result.is_err());n    }n}```nn## Module Patternsn```rustn// lib.rsnpub mod modules;nn// modules/mod.rsnpub mod submodule;npub use submodule::*;nn// modules/submodule.rsnpub struct MyStruct {n    pub field: String,n}nnimpl MyStruct {n    pub fn new(field: String) -> Self {n        Self { field }n    }n}```
+# Rust Language Hints
+
+## Common Patterns
+- Use Cargo for package management
+- Follow Rust naming conventions
+- Implement proper error handling with Result<T, E>
+- Use Option<T> for nullable values
+- Write comprehensive tests
+- Use clap for CLI applications
+
+## Project Structure
+```
+project_name/
+├── src/
+│   ├── main.rs
+│   ├── lib.rs
+│   └── modules/
+│       ├── mod.rs
+│       └── submodule.rs
+├── tests/
+│   └── integration_tests.rs
+├── examples/
+├── Cargo.toml
+├── README.md
+└── .gitignore
+```
+
+## Common Dependencies
+- tokio for async runtime (if needed)
+- serde for serialization
+- clap for command-line argument parsing
+- anyhow for error handling
+- thiserror for custom error types
+- criterion for benchmarking
+
+## Error Handling Patterns
+```rust
+use anyhow::{Context, Result};
+
+pub fn process_data(input: &str) -> Result<String> {
+    let parsed = input.parse::<i32>()
+        .context("Failed to parse input as integer")?;
+    Ok(parsed.to_string())
+}
+```
+
+## Testing Patterns
+```rust
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test_process_data() {
+        let result = process_data("42").unwrap();
+        assert_eq!(result, "42");
+    }
+
+    #[test]
+    fn test_process_data_invalid() {
+        let result = process_data("invalid");
+        assert!(result.is_err());
+    }
+}
+```
+
+## Module Patterns
+```rust
+// lib.rs
+pub mod modules;
+
+// modules/mod.rs
+pub mod submodule;
+pub use submodule::*;
+
+// modules/submodule.rs
+pub struct MyStruct {
+    pub field: String,
+}
+
+impl MyStruct {
+    pub fn new(field: String) -> Self {
+        Self { field }
+    }
+}
+```

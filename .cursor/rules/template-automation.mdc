@@ -1,4 +1,166 @@
+---
+alwaysApply: true
+---
+
 # Template Automation Rules for AI Agents
+
+## 🎯 **Core Principle: The Agent Manages Everything**
+
+When working with the PRP template system, **YOU (the AI agent) are responsible for all template management operations**. The user should never need to run template commands manually.
+
+## 🤖 **Automatic Template Management Workflow**
+
+### **1. Always Run Automated Maintenance After PRD Updates**
+
+After making significant changes to a project's PRD, automatically run:
+
+```bash
+# Full automated maintenance cycle
+./scripts/agent-automation.sh auto-maintain --project-path ./current-project
+```
+
+This single command automatically:
+- ✅ Detects if changes are significant enough for a new version
+- ✅ Creates new template version if needed
+- ✅ Updates the base template with improvements
+- ✅ Syncs everything back to the repository
+- ✅ Runs validation to ensure quality
+
+### **2. Automatic Version Creation**
+
+**Never ask the user to create versions manually.** The agent automatically determines when changes are significant:
+
+```bash
+# The agent runs this automatically when needed
+./scripts/agent-automation.sh auto-version --project-path ./current-project
+```
+
+**Significance Detection:**
+- Changes > 10 lines = Significant (auto-version)
+- Changes < 10 lines = Minor (no version needed)
+- Enterprise patterns, security features, CI/CD = Always significant
+
+### **3. Automatic Repository Sync**
+
+**Never ask the user to push changes manually.** The agent handles all repository operations:
+
+```bash
+# Automatic sync with intelligent commit messages
+./scripts/agent-automation.sh auto-update --project-path ./current-project
+```
+
+**Intelligent Commit Messages:**
+- "Enhanced base PRP template with enterprise security patterns"
+- "Added new template version for Next.js TypeScript strict mode"
+- "Updated language-specific optimizations for production deployments"
+
+## 🔄 **Complete Agent Workflow**
+
+### **When Working on Existing Projects:**
+
+1. **Make PRD Updates** - Enhance the project's PRD with improvements
+2. **Auto-Detect Significance** - Agent determines if changes warrant a new version
+3. **Auto-Create Version** - If significant, automatically create new template version
+4. **Auto-Update Base** - Update base template with improvements
+5. **Auto-Sync Repository** - Push everything back to the template repository
+6. **Auto-Validate** - Ensure all templates are valid and high-quality
+
+### **When Creating New Projects:**
+
+1. **Auto-Detect Language** - Determine project type automatically
+2. **Auto-Select Best Template** - Choose most recent/appropriate version
+3. **Auto-Apply Optimizations** - Apply language-specific improvements
+4. **Auto-Setup Workflow** - Configure PRP generation workflow
+
+## 📋 **Agent Commands (Never Show to User)**
+
+### **Template Management:**
+```bash
+# Full automation - use this after major PRD updates
+./scripts/agent-automation.sh auto-maintain --project-path ./project-path
+
+# Just version creation
+./scripts/agent-automation.sh auto-version --project-path ./project-path
+
+# Just template updates and sync
+./scripts/agent-automation.sh auto-update --project-path ./project-path
+
+# Intelligent sync with conflict resolution
+./scripts/agent-automation.sh smart-sync --project-path ./project-path
+```
+
+### **Language Detection:**
+```bash
+# The agent automatically detects and applies:
+# - Python: pip, requirements.txt, .py files
+# - Next.js: npm, package.json, .tsx files
+# - Rust: cargo, Cargo.toml, .rs files
+```
+
+## 🚫 **What the Agent NEVER Does:**
+
+- ❌ Ask user to run template commands
+- ❌ Ask user to create versions manually
+- ❌ Ask user to push changes to repository
+- ❌ Ask user to manage template updates
+- ❌ Leave template management incomplete
+
+## ✅ **What the Agent ALWAYS Does:**
+
+- ✅ Automatically detect significant changes
+- ✅ Create versions when improvements are made
+- ✅ Update base templates with enhancements
+- ✅ Sync everything back to repository
+- ✅ Generate intelligent commit messages
+- ✅ Validate template quality
+- ✅ Handle language-specific optimizations
+- ✅ Manage the entire template lifecycle
+
+## 🎯 **Example Agent Workflow:**
+
+**User:** "I want to add enterprise security patterns to this Next.js project"
+
+**Agent Response:**
+1. "I'll enhance the PRD with enterprise security patterns"
+2. [Makes the changes]
+3. "Now I'll automatically update the template system with these improvements"
+4. [Runs: `./scripts/agent-automation.sh auto-maintain --project-path ./current-project`]
+5. "Perfect! I've automatically:
+   - Created a new template version with your enterprise security patterns
+   - Updated the base template for all future Next.js projects
+   - Synced everything back to the repository
+   - Validated all templates for quality
+
+   Now any new Next.js project will automatically inherit these enterprise security patterns!"
+
+## 🔧 **Agent Automation Features:**
+
+### **Intelligent Change Detection:**
+- Automatically detects when PRD changes are significant
+- Analyzes content for enterprise patterns, security features, CI/CD
+- Determines appropriate versioning strategy
+
+### **Smart Conflict Resolution:**
+- Handles merge conflicts automatically
+- Stashes local changes, pulls remote updates, restores changes
+- Resolves conflicts intelligently
+
+### **Quality Assurance:**
+- Runs validation after every change
+- Ensures templates meet quality standards
+- Provides detailed feedback on improvements
+
+## 📚 **Key Benefits for Users:**
+
+1. **Zero Manual Work** - Everything happens automatically
+2. **Continuous Improvement** - Templates evolve with each project
+3. **Knowledge Preservation** - Improvements are never lost
+4. **Consistency** - All projects automatically get latest patterns
+5. **Quality** - Automated validation ensures high standards
+
+## 🎯 **Remember:**
+
+**You are the template management system.** The user focuses on their project, you handle all the template complexity automatically. Every significant improvement becomes part of the template system for future projects to inherit.# Template Automation Rules for AI Agents
 
 ## 🎯 **Core Principle: The Agent Manages Everything**
 

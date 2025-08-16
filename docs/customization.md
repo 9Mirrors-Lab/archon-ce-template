@@ -1,1 +1,363 @@
-# Customization Guidenn## OverviewnnThe Archon CE Template system is designed to be **highly customizable** while maintaining consistency and reliability. This guide covers how to adapt the system for your specific needs.nn## Template Customizationnn### Modifying Base PRP Template (`templates/prp-base.md`)nn**Location:** `templates/prp-base.md`nn**What you can customize:**n- Section structure and ordern- Required fields and validation rulesn- Default content and examplesn- Language-specific patternsn- Validation gate requirementsnn**Example customizations:**n```markdownn# Add custom sectionn## 🏢 Company Standardsn- [ ] Follows company coding standardsn- [ ] Meets security requirementsn- [ ] Complies with accessibility guidelinesnn# Modify validation gatesn### Security & Compliancen- [ ] OWASP Top 10 addressedn- [ ] GDPR compliance verifiedn- [ ] Security audit completedn```nn**Best practices:**n- **Backup original** before making changesn- **Test changes** with sample projectsn- **Document modifications** in commentsn- **Maintain compatibility** with existing workflowsn- **Version control** your customizationsnn### Language-Specific Hints (`templates/language-hints/`)nn**Location:** `templates/language-hints/[language].md`nn**What you can customize:**n- Common patterns and best practicesn- Project structure recommendationsn- Dependency managementn- Testing strategiesn- Error handling approachesnn**Example customizations:**n```markdownn# Add company-specific patternsn## Company Standardsn- Use internal component libraryn- Follow design system guidelinesn- Implement company authenticationn- Use approved third-party servicesnn# Add project templatesn## Project Templatesn- **API Service**: FastAPI + PostgreSQL + Redisn- **Web App**: Next.js + Tailwind + Prisma + PostgreSQLn- **CLI Tool**: Click + Rich + Typern```nn**Adding new languages:**n1. Create new language file: `templates/language-hints/yourlang.md`n2. Follow existing structure and formatn3. Include comprehensive patterns and examplesn4. Test with sample projectsn5. Add to language detection scriptnn### Versioned Templates (`templates/versioned-templates/`)nn**Location:** `templates/versioned-templates/`nn**Purpose:** Preserve successful template versions for reuse.nn**Naming convention:** `[language]-template-v[version].md`nn**When versions are created:**n- New language support addedn- Significant template improvementsn- Company standards updatedn- Major structural changesnn**Managing versions:**n- **Keep recent versions** (last 5-10)n- **Archive old versions** to separate directoryn- **Document version changes** in changelogn- **Test compatibility** with existing projectsnn## Workflow Customizationnn### Adding New Workflow Stepsnn**Location:** `workflows/` directorynn**Naming convention:** `step-N-description.sh`nn**Example new step:**n```bashn#!/bin/bashn# step-4-validate-prp.sh - Validate generated PRPnnecho "🔍 Step 4: Validating generated PRP..."nn# Run PRP validationn./scripts/validate-prp.shnnif [ $? -eq 0 ]; thenn    echo "✅ Step 4: PRP validation passed"nelsen    echo "❌ ERROR: PRP validation failed"n    exit 1nfin```nn**Integration:**n1. Add step to main workflow (`enforce-prp-workflow.sh`)n2. Update validation script (`validate-workflow.sh`)n3. Test with sample projectsn4. Update documentationnn### Modifying Existing Stepsnn**Backup strategy:**n```bashn# Before modificationncp workflows/step-2-update-template.sh workflows/step-2-update-template.sh.backupnn# After testingncp workflows/step-2-update-template.sh workflows/step-2-update-template.sh.backup.$(date +%Y%m%d)```nn**Testing changes:**n1. **Create test project** with known configurationn2. **Run workflow** with modified stepn3. **Verify outputs** match expectationsn4. **Check error handling** with invalid inputsn5. **Validate compatibility** with other stepsnn### Custom Validation Rulesnn**Location:** `scripts/` directorynn**Example custom validation:**n```bashn#!/bin/bashn# validate-company-standards.sh - Company-specific validationnn# Check company requirementsnif ! grep -q "Company Standards" "$PRP_FILE"; thenn    echo "❌ ERROR: Missing company standards section"n    exit 1nfinnecho "✅ Company standards validation passed"n```nn**Integration:**n1. Add to validation workflown2. Update validation scriptsn3. Include in CLI commandsn4. Document requirementsnn## Script Customizationnn### Utility Scripts (`scripts/`)nn**Location:** `scripts/` directorynn**What you can customize:**n- Language detection logicn- Template update strategiesn- PRP generation rulesn- Validation criterian- Backup and versioningnn**Example customizations:**n```bashn# Add company language supportnif [ "$LANGUAGE" = "COMPANY_SPECIFIC" ]; thenn    echo "   📝 Applying company-specific patterns..."n    # Add company patternsn    cat >> "templates/prp-base-updated.md" << EOFn## 🏢 Company Standardsn- Use approved libraries onlyn- Follow security guidelinesn- Implement audit loggingnEOFnfi```nn**Best practices:**n- **Maintain compatibility** with existing scriptsn- **Add configuration options** for flexibilityn- **Implement proper error handling**n- **Log all operations** for debuggingn- **Test thoroughly** before deploymentnn### CLI Commands (`commands/`)nn**Location:** `commands/prp-commands/`nn**What you can customize:**n- Command syntax and optionsn- Validation rulesn- Output formatsn- Integration with external toolsn- Company-specific requirementsnn**Example customizations:**n```bashn# Add company validationnif [ "$COMPANY_MODE" = "true" ]; thenn    echo "🔍 Running company validation..."n    ./scripts/validate-company-standards.sh "$PRP_FILE"n    if [ $? -ne 0 ]; thenn        echo "❌ Company validation failed"n        exit 1n    finnfi```nn**Integration:**n1. Update command documentationn2. Add configuration optionsn3. Test with company projectsn4. Update help and examplesnn## Configuration Optionsnn### Environment Variablesnn**Template customization:**n```bashn# .env or environmentnTEMPLATE_CUSTOM_PATH="/path/to/custom/templates"nCOMPANY_MODE="true"nVALIDATION_STRICTNESS="high"nBACKUP_RETENTION_DAYS="30"n```nn**Script configuration:**n```bashn# In scriptsnTEMPLATE_PATH="${TEMPLATE_CUSTOM_PATH:-templates}"nCOMPANY_MODE="${COMPANY_MODE:-false}"nVALIDATION_LEVEL="${VALIDATION_STRICTNESS:-medium}"n```nn### Configuration Filesnn**Template configuration:**n```jsonn// config/templates.jsonn{n  "default_language": "python",n  "company_standards": true,n  "validation_rules": ["security", "performance", "accessibility"],n  "custom_sections": ["compliance", "audit"],n  "versioning": {n    "auto_version": true,n    "retention_days": 90n  }n}n```nn**Workflow configuration:**n```jsonn// config/workflow.jsonn{n  "steps": ["read_context", "update_template", "create_prp", "validate"],n  "parallel_execution": false,n  "error_handling": "strict",n  "logging": "detailed",n  "backup_strategy": "incremental"n}n```nn## Integration with External Toolsnn### CI/CD Integrationnn**GitHub Actions example:**n```yamlnname: PRP Validationnon: [push, pull_request]njobs:n  validate-prp:n    runs-on: ubuntu-latestn    steps:n      - uses: actions/checkout@v3n      - name: Setup PRP Workflown        run: ./workflows/setup-prp-workflow.shn      - name: Validate PRPn        run: ./workflows/validate-workflow.shn```nn**GitLab CI example:**n```yamlnstages:n  - validate-prpnprp-validation:n  stage: validate-prpn  script:n    - ./workflows/setup-prp-workflow.shn    - ./workflows/validate-workflow.shn```nn### IDE Integrationnn**VS Code extension:**n- Syntax highlighting for PRP filesn- Workflow execution commandsn- Validation feedbackn- Template customizationn- Project generationnn**JetBrains plugin:**n- PRP file supportn- Workflow integrationn- Template managementn- Validation toolsnn## Testing Customizationsnn### Test Strategynn1. **Unit tests** for individual scriptsn2. **Integration tests** for workflow stepsn3. **End-to-end tests** for complete workflowsn4. **Regression tests** for existing functionalityn5. **Performance tests** for large projectsnn### Test Environmentnn```bashn# Create test environmentnmkdir test-projectncd test-projectncp -r ../archon-ce-template/* .nchmod +x workflows/*.sh scripts/*.shnn# Test with sample datanecho "Language: Python" > initial.mdnecho "Purpose: Test project" >> initial.mdn./workflows/enforce-prp-workflow.shn```nn### Validation Checklistnn- [ ] **Functionality** - All features work as expectedn- [ ] **Compatibility** - Existing projects still workn- [ ] **Performance** - No significant slowdownsn- [ ] **Error handling** - Graceful failure modesn- [ ] **Documentation** - Updated and accuraten- [ ] **Testing** - Comprehensive test coverage
+# Customization Guide
+
+## Overview
+
+The Archon CE Template system is designed to be **highly customizable** while maintaining consistency and reliability. This guide covers how to adapt the system for your specific needs.
+
+## Template Customization
+
+### Modifying Base PRP Template (`templates/prp-base.md`)
+
+**Location:** `templates/prp-base.md`
+
+**What you can customize:**
+- Section structure and order
+- Required fields and validation rules
+- Default content and examples
+- Language-specific patterns
+- Validation gate requirements
+
+**Example customizations:**
+```markdown
+# Add custom section
+## 🏢 Company Standards
+- [ ] Follows company coding standards
+- [ ] Meets security requirements
+- [ ] Complies with accessibility guidelines
+
+# Modify validation gates
+### Security & Compliance
+- [ ] OWASP Top 10 addressed
+- [ ] GDPR compliance verified
+- [ ] Security audit completed
+```
+
+**Best practices:**
+- **Backup original** before making changes
+- **Test changes** with sample projects
+- **Document modifications** in comments
+- **Maintain compatibility** with existing workflows
+- **Version control** your customizations
+
+### Language-Specific Hints (`templates/language-hints/`)
+
+**Location:** `templates/language-hints/[language].md`
+
+**What you can customize:**
+- Common patterns and best practices
+- Project structure recommendations
+- Dependency management
+- Testing strategies
+- Error handling approaches
+
+**Example customizations:**
+```markdown
+# Add company-specific patterns
+## Company Standards
+- Use internal component library
+- Follow design system guidelines
+- Implement company authentication
+- Use approved third-party services
+
+# Add project templates
+## Project Templates
+- **API Service**: FastAPI + PostgreSQL + Redis
+- **Web App**: Next.js + Tailwind + Prisma + PostgreSQL
+- **CLI Tool**: Click + Rich + Typer
+```
+
+**Adding new languages:**
+1. Create new language file: `templates/language-hints/yourlang.md`
+2. Follow existing structure and format
+3. Include comprehensive patterns and examples
+4. Test with sample projects
+5. Add to language detection script
+
+### Versioned Templates (`templates/versioned-templates/`)
+
+**Location:** `templates/versioned-templates/`
+
+**Purpose:** Preserve successful template versions for reuse.
+
+**Naming convention:** `[language]-template-v[version].md`
+
+**When versions are created:**
+- New language support added
+- Significant template improvements
+- Company standards updated
+- Major structural changes
+
+**Managing versions:**
+- **Keep recent versions** (last 5-10)
+- **Archive old versions** to separate directory
+- **Document version changes** in changelog
+- **Test compatibility** with existing projects
+
+## Workflow Customization
+
+### Adding New Workflow Steps
+
+**Location:** `workflows/` directory
+
+**Naming convention:** `step-N-description.sh`
+
+**Example new step:**
+```bash
+#!/bin/bash
+# step-4-validate-prp.sh - Validate generated PRP
+
+echo "🔍 Step 4: Validating generated PRP..."
+
+# Run PRP validation
+./scripts/validate-prp.sh
+
+if [ $? -eq 0 ]; then
+    echo "✅ Step 4: PRP validation passed"
+else
+    echo "❌ ERROR: PRP validation failed"
+    exit 1
+fi
+```
+
+**Integration:**
+1. Add step to main workflow (`enforce-prp-workflow.sh`)
+2. Update validation script (`validate-workflow.sh`)
+3. Test with sample projects
+4. Update documentation
+
+### Modifying Existing Steps
+
+**Backup strategy:**
+```bash
+# Before modification
+cp workflows/step-2-update-template.sh workflows/step-2-update-template.sh.backup
+
+# After testing
+cp workflows/step-2-update-template.sh workflows/step-2-update-template.sh.backup.$(date +%Y%m%d)
+```
+
+**Testing changes:**
+1. **Create test project** with known configuration
+2. **Run workflow** with modified step
+3. **Verify outputs** match expectations
+4. **Check error handling** with invalid inputs
+5. **Validate compatibility** with other steps
+
+### Custom Validation Rules
+
+**Location:** `scripts/` directory
+
+**Example custom validation:**
+```bash
+#!/bin/bash
+# validate-company-standards.sh - Company-specific validation
+
+# Check company requirements
+if ! grep -q "Company Standards" "$PRP_FILE"; then
+    echo "❌ ERROR: Missing company standards section"
+    exit 1
+fi
+
+echo "✅ Company standards validation passed"
+```
+
+**Integration:**
+1. Add to validation workflow
+2. Update validation scripts
+3. Include in CLI commands
+4. Document requirements
+
+## Script Customization
+
+### Utility Scripts (`scripts/`)
+
+**Location:** `scripts/` directory
+
+**What you can customize:**
+- Language detection logic
+- Template update strategies
+- PRP generation rules
+- Validation criteria
+- Backup and versioning
+
+**Example customizations:**
+```bash
+# Add company language support
+if [ "$LANGUAGE" = "COMPANY_SPECIFIC" ]; then
+    echo "   📝 Applying company-specific patterns..."
+    # Add company patterns
+    cat >> "templates/prp-base-updated.md" << EOF
+## 🏢 Company Standards
+- Use approved libraries only
+- Follow security guidelines
+- Implement audit logging
+EOF
+fi
+```
+
+**Best practices:**
+- **Maintain compatibility** with existing scripts
+- **Add configuration options** for flexibility
+- **Implement proper error handling**
+- **Log all operations** for debugging
+- **Test thoroughly** before deployment
+
+### CLI Commands (`commands/`)
+
+**Location:** `commands/prp-commands/`
+
+**What you can customize:**
+- Command syntax and options
+- Validation rules
+- Output formats
+- Integration with external tools
+- Company-specific requirements
+
+**Example customizations:**
+```bash
+# Add company validation
+if [ "$COMPANY_MODE" = "true" ]; then
+    echo "🔍 Running company validation..."
+    ./scripts/validate-company-standards.sh "$PRP_FILE"
+    if [ $? -ne 0 ]; then
+        echo "❌ Company validation failed"
+        exit 1
+    fi
+fi
+```
+
+**Integration:**
+1. Update command documentation
+2. Add configuration options
+3. Test with company projects
+4. Update help and examples
+
+## Configuration Options
+
+### Environment Variables
+
+**Template customization:**
+```bash
+# .env or environment
+TEMPLATE_CUSTOM_PATH="/path/to/custom/templates"
+COMPANY_MODE="true"
+VALIDATION_STRICTNESS="high"
+BACKUP_RETENTION_DAYS="30"
+```
+
+**Script configuration:**
+```bash
+# In scripts
+TEMPLATE_PATH="${TEMPLATE_CUSTOM_PATH:-templates}"
+COMPANY_MODE="${COMPANY_MODE:-false}"
+VALIDATION_LEVEL="${VALIDATION_STRICTNESS:-medium}"
+```
+
+### Configuration Files
+
+**Template configuration:**
+```json
+// config/templates.json
+{
+  "default_language": "python",
+  "company_standards": true,
+  "validation_rules": ["security", "performance", "accessibility"],
+  "custom_sections": ["compliance", "audit"],
+  "versioning": {
+    "auto_version": true,
+    "retention_days": 90
+  }
+}
+```
+
+**Workflow configuration:**
+```json
+// config/workflow.json
+{
+  "steps": ["read_context", "update_template", "create_prp", "validate"],
+  "parallel_execution": false,
+  "error_handling": "strict",
+  "logging": "detailed",
+  "backup_strategy": "incremental"
+}
+```
+
+## Integration with External Tools
+
+### CI/CD Integration
+
+**GitHub Actions example:**
+```yaml
+name: PRP Validation
+on: [push, pull_request]
+jobs:
+  validate-prp:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup PRP Workflow
+        run: ./workflows/setup-prp-workflow.sh
+      - name: Validate PRP
+        run: ./workflows/validate-workflow.sh
+```
+
+**GitLab CI example:**
+```yaml
+stages:
+  - validate-prp
+
+prp-validation:
+  stage: validate-prp
+  script:
+    - ./workflows/setup-prp-workflow.sh
+    - ./workflows/validate-workflow.sh
+```
+
+### IDE Integration
+
+**VS Code extension:**
+- Syntax highlighting for PRP files
+- Workflow execution commands
+- Validation feedback
+- Template customization
+- Project generation
+
+**JetBrains plugin:**
+- PRP file support
+- Workflow integration
+- Template management
+- Validation tools
+
+## Testing Customizations
+
+### Test Strategy
+
+1. **Unit tests** for individual scripts
+2. **Integration tests** for workflow steps
+3. **End-to-end tests** for complete workflows
+4. **Regression tests** for existing functionality
+5. **Performance tests** for large projects
+
+### Test Environment
+
+```bash
+# Create test environment
+mkdir test-project
+cd test-project
+cp -r ../archon-ce-template/* .
+chmod +x workflows/*.sh scripts/*.sh
+
+# Test with sample data
+echo "Language: Python" > initial.md
+echo "Purpose: Test project" >> initial.md
+./workflows/enforce-prp-workflow.sh
+```
+
+### Validation Checklist
+
+- [ ] **Functionality** - All features work as expected
+- [ ] **Compatibility** - Existing projects still work
+- [ ] **Performance** - No significant slowdowns
+- [ ] **Error handling** - Graceful failure modes
+- [ ] **Documentation** - Updated and accurate
+- [ ] **Testing** - Comprehensive test coverage

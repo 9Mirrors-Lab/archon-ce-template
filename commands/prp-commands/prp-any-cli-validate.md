@@ -1,1 +1,180 @@
-# PRP Validate Command - CLI Versionnn## Command: `prp validate`nn### PurposenValidates a Project Requirements Document (PRP) against quality standards and best practices.nn### Usagen```bashnprp validate [options]nn# Examplesnprp validate                    # Validate current PRPnprp validate my-project.prp     # Validate specific PRP filenprp validate --fix              # Auto-fix common issuesnprp validate --strict           # Use strict validation rulesn```nn### Optionsn- `--fix` - Automatically fix common validation issuesn- `--strict` - Use strict validation rulesn- `--output=<format>` - Output format (text, json, html)n- `--rules=<file>` - Use custom validation rulesn- `--help` - Show help informationnn### Validation Rulesn#### Required Sectionsn- [ ] Project Overview (name, language, framework, date, status)n- [ ] Goal (clear, concise statement)n- [ ] Why This Project (business justification)n- [ ] What Will Be Built (description, success criteria, user stories)n- [ ] Context & Architecture (documentation, existing code, gotchas)n- [ ] Implementation Blueprint (phases and tasks)n- [ ] Validation Gates (code quality, testing, documentation)nn#### Quality Checksn- [ ] All placeholders replaced with actual contentn- [ ] Tasks have clear, actionable descriptionsn- [ ] Dependencies properly identifiedn- [ ] Success criteria are measurablen- [ ] Error handling strategies definedn- [ ] Security considerations addressedn- [ ] Testing approach documentednn#### Language-Specific Rulesn- **Python**: Virtual environment, requirements.txt, pytest setupn- **Next.js**: TypeScript config, component structure, API routesn- **Rust**: Cargo.toml, module structure, error handlingn- **Common**: Git setup, documentation, CI/CD configurationnn### Workflown1. **Parse PRP** - Read and parse PRP documentn2. **Check Structure** - Validate required sections existn3. **Content Validation** - Check content quality and completenessn4. **Language Validation** - Apply language-specific rulesn5. **Generate Report** - Create detailed validation reportn6. **Auto-fix** - Apply fixes if --fix option usedn7. **Output Results** - Display validation results in specified formatnn### Outputn- **Validation Score** - Overall quality percentagen- **Issues Found** - List of validation problemsn- **Suggestions** - Recommendations for improvementn- **Auto-fixes** - Changes made automaticallyn- **Detailed Report** - Comprehensive validation analysisnn### Error Handlingn- Provides clear error messages for each issuen- Suggests specific fixes for common problemsn- Explains validation rule requirementsn- Offers examples of correct formattingn- Maintains validation history for tracking improvementsnn### Examplesnn#### Basic Validationn```bashn$ prp validaten✅ Parsing PRP: my-project.prpn🔍 Running validation checks...nnValidation Results:n✅ Structure: 100% (7/7 sections present)n✅ Content: 85% (17/20 quality checks passed)n✅ Language: 90% (9/10 Python rules passed)n✅ Overall: 88%nnIssues Found:n❌ Missing: Security considerations in validation gatesn❌ Incomplete: Task descriptions lack time estimatesn❌ Weak: Success criteria not measurablennSuggestions:n- Add security validation checklistn- Include time estimates for all tasksn- Make success criteria specific and measurablennValidation completed with 3 issues found.n```nn#### Auto-fix Moden```bashn$ prp validate --fixn✅ Parsing PRP: my-project.prpn🔍 Running validation checks...n🔧 Applying auto-fixes...nnAuto-fixes applied:n✅ Added missing security considerationsn✅ Enhanced task descriptions with time estimatesn✅ Improved success criteria measurabilitynnValidation Results:n✅ Structure: 100% (7/7 sections present)n✅ Content: 95% (19/20 quality checks passed)n✅ Language: 95% (10/10 Python rules passed)n✅ Overall: 95%nn✅ Validation improved from 88% to 95%n✅ Auto-fixes applied successfully!n```nn#### Strict Validationn```bashn$ prp validate --strictn✅ Parsing PRP: my-project.prpn🔍 Running strict validation checks...nnValidation Results:n✅ Structure: 100% (7/7 sections present)n✅ Content: 75% (15/20 quality checks passed)n✅ Language: 80% (8/10 Python rules passed)n✅ Overall: 78%nn❌ FAILED: Strict validation requires 90%+ scoren❌ 5 issues must be resolved before proceedingnnIssues Found:n❌ CRITICAL: Missing error handling strategiesn❌ CRITICAL: Incomplete testing approachn❌ HIGH: Security considerations too vaguen❌ MEDIUM: Task dependencies unclearn❌ LOW: Documentation standards not definednnStrict validation failed. Please address critical issues first.n```nn#### Custom Rulesn```bashn$ prp validate --rules=custom-rules.jsonn✅ Parsing PRP: my-project.prpn✅ Loading custom rules: custom-rules.jsonn🔍 Running custom validation...nnCustom Validation Results:n✅ Company Standards: 100%n✅ Architecture Guidelines: 90%n✅ Security Requirements: 85%n✅ Performance Standards: 80%n✅ Overall: 88%nnCustom validation completed with 4 issues found.n```
+# PRP Validate Command - CLI Version
+
+## Command: `prp validate`
+
+### Purpose
+Validates a Project Requirements Document (PRP) against quality standards, ensuring completeness, consistency, and implementation readiness.
+
+### Usage
+```bash
+prp validate [options]
+
+# Examples
+prp validate                    # Validate current PRP
+prp validate --fix              # Auto-fix common issues
+prp validate --strict           # Use strict validation rules
+prp validate --output=report.md # Generate validation report
+```
+
+### Options
+- `--fix` - Automatically fix common formatting issues
+- `--strict` - Use strict validation rules
+- `--output=<filename>` - Generate validation report
+- `--level=<1-4>` - Set validation level (1=basic, 4=comprehensive)
+- `--help` - Show help information
+
+### Validation Levels
+
+#### Level 1: Basic Structure
+- File format and markdown syntax
+- Required sections presence
+- Basic content completeness
+
+#### Level 2: Content Quality
+- Implementation blueprint completeness
+- Task dependencies and ordering
+- Success criteria measurability
+
+#### Level 3: Technical Validation
+- Language-specific pattern compliance
+- Security and performance considerations
+- Testing and validation coverage
+
+#### Level 4: Enterprise Standards
+- Company-specific requirements
+- Compliance and regulatory standards
+- Integration and deployment readiness
+
+### Validation Checks
+
+#### Structure Validation
+- [ ] All required sections present
+- [ ] Proper heading hierarchy
+- [ ] Consistent formatting
+- [ ] Valid markdown syntax
+
+#### Content Validation
+- [ ] Project context complete
+- [ ] Requirements specific and measurable
+- [ ] Technical constraints realistic
+- [ ] Success criteria achievable
+
+#### Implementation Validation
+- [ ] Implementation blueprint complete
+- [ ] Task dependencies clear
+- [ ] Validation gates defined
+- [ ] Error handling planned
+
+### Output
+- Validation status report
+- List of issues found
+- Suggestions for improvements
+- Auto-fixed formatting issues (if --fix used)
+
+### Error Handling
+- Provides clear error descriptions
+- Suggests specific fixes
+- Categorizes issues by severity
+- Offers auto-fix options when possible
+
+### Examples
+
+#### Basic Validation
+```bash
+$ prp validate
+🔍 Validating PRP: my-project.prp
+
+✅ Level 1: Basic Structure - PASSED
+✅ Level 2: Content Quality - PASSED
+⚠️  Level 3: Technical Validation - WARNINGS
+❌ Level 4: Enterprise Standards - FAILED
+
+📋 Issues Found:
+⚠️  Missing performance benchmarks in success criteria
+⚠️  No security considerations documented
+❌ Company compliance section missing
+❌ No audit trail requirements
+
+🎯 Recommendations:
+- Add performance benchmarks
+- Include security considerations
+- Add company compliance section
+- Define audit requirements
+```
+
+#### Auto-Fix Mode
+```bash
+$ prp validate --fix
+🔍 Validating PRP: my-project.prp
+
+✅ Level 1: Basic Structure - PASSED
+⚠️  Level 2: Content Quality - WARNINGS
+✅ Level 3: Technical Validation - PASSED
+✅ Level 4: Enterprise Standards - PASSED
+
+🔧 Auto-fixes applied:
+✅ Fixed inconsistent heading formatting
+✅ Corrected markdown syntax errors
+✅ Standardized list formatting
+✅ Fixed broken links
+
+📋 Remaining Issues:
+⚠️  Success criteria could be more specific
+⚠️  Consider adding error handling examples
+```
+
+#### Strict Validation
+```bash
+$ prp validate --strict
+🔍 Strict validation: my-project.prp
+
+❌ Level 1: Basic Structure - FAILED
+❌ Level 2: Content Quality - FAILED
+❌ Level 3: Technical Validation - FAILED
+❌ Level 4: Enterprise Standards - FAILED
+
+📋 Critical Issues:
+❌ Missing project context section
+❌ No implementation blueprint
+❌ Success criteria not measurable
+❌ No validation gates defined
+❌ Missing security considerations
+❌ No compliance requirements
+
+💡 This PRP needs significant work before implementation.
+```
+
+#### Generate Report
+```bash
+$ prp validate --output=validation-report.md
+🔍 Validating PRP: my-project.prp
+
+✅ Validation completed
+📄 Report generated: validation-report.md
+
+📊 Summary:
+- Structure: 95% (19/20 checks passed)
+- Content: 87% (13/15 checks passed)
+- Implementation: 92% (23/25 checks passed)
+- Standards: 78% (14/18 checks passed)
+
+Overall Score: 88% - GOOD
+```
+
+### Best Practices
+
+#### Before Validation
+- Ensure PRP is complete and up-to-date
+- Run basic formatting checks
+- Verify all sections are filled
+
+#### During Validation
+- Address critical issues first
+- Use auto-fix for formatting issues
+- Review warnings for improvement opportunities
+
+#### After Validation
+- Fix all failed validations
+- Address warnings for better quality
+- Update PRP based on feedback
+- Re-run validation to confirm fixes

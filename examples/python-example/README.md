@@ -1,1 +1,61 @@
-# Python FastAPI User ManagementnnThis is an example project showing how to use the Archon CE Template system with a Python FastAPI project.nn## Project Structurenn```npython-example/n├── initial.md              # Project context (this file)n├── README.md              # Project documentationn├── requirements.txt       # Python dependenciesn├── src/                   # Source code directoryn│   ├── main.py            # FastAPI application entry pointn│   ├── models/            # Database modelsn│   ├── api/               # API route handlersn│   ├── services/          # Business logicn│   └── utils/             # Utility functionsn├── tests/                 # Test directoryn│   ├── test_api.py        # API endpoint testsn│   ├── test_models.py     # Model testsn│   └── test_services.py   # Service testsn├── docs/                  # Documentationn│   ├── api.md             # API documentationn│   └── deployment.md      # Deployment guiden└── docker/                # Docker configurationn    ├── Dockerfile         # Application containern    └── docker-compose.yml # Development environmentn```nn## How to Use This Examplenn1. **Copy the template structure** to your projectn2. **Edit initial.md** with your specific requirementsn3. **Run the PRP workflow**: `./workflows/enforce-prp-workflow.sh`n4. **Review the generated PRP** and customize as neededn5. **Begin implementation** following the PRP phasesnn## Key Featuresnn- **FastAPI framework** for high-performance APIsn- **PostgreSQL integration** with SQLAlchemy ORMn- **JWT authentication** with secure password handlingn- **Role-based access control** for different user typesn- **Comprehensive testing** with pytestn- **Docker deployment** for easy development and productionnn## Next StepsnnAfter running the PRP workflow:n1. Review the generated `python-example.prp`n2. Customize implementation phases and tasksn3. Set up your development environmentn4. Begin with Phase 1: Foundationn5. Follow the PRP validation gatesnn## Learn Morenn- [Archon CE Template Documentation](../../docs/)n- [Python Language Hints](../../templates/language-hints/python.md)n- [Workflow Documentation](../../docs/workflow.md)n- [Usage Guide](../../docs/usage.md)
+# Python FastAPI User Management
+
+This is an example project showing how to use the Archon CE Template system with a Python FastAPI project.
+
+## Project Structure
+
+```
+python-example/
+├── initial.md              # Project context (this file)
+├── README.md              # Project documentation
+├── requirements.txt       # Python dependencies
+├── src/                   # Source code directory
+│   ├── main.py            # FastAPI application entry point
+│   ├── models/            # Database models
+│   ├── api/               # API route handlers
+│   ├── services/          # Business logic
+│   └── utils/             # Utility functions
+├── tests/                 # Test directory
+│   ├── test_api.py        # API endpoint tests
+│   ├── test_models.py     # Model tests
+│   └── test_services.py   # Service tests
+├── docs/                  # Documentation
+│   ├── api.md             # API documentation
+│   └── deployment.md      # Deployment guide
+└── docker/                # Docker configuration
+    ├── Dockerfile         # Application container
+    └── docker-compose.yml # Development environment
+```
+
+## How to Use This Example
+
+1. **Copy the template structure** to your project
+2. **Edit initial.md** with your specific requirements
+3. **Run the PRP workflow**: `./workflows/enforce-prp-workflow.sh`
+4. **Review the generated PRP** and customize as needed
+5. **Begin implementation** following the PRP phases
+
+## Key Features
+
+- **FastAPI framework** for high-performance APIs
+- **PostgreSQL integration** with SQLAlchemy ORM
+- **JWT authentication** with secure password handling
+- **Role-based access control** for different user types
+- **Comprehensive testing** with pytest
+- **Docker deployment** for easy development and production
+
+## Next Steps
+
+After running the PRP workflow:
+1. Review the generated `python-example.prp`
+2. Customize implementation phases and tasks
+3. Set up your development environment
+4. Begin with Phase 1: Foundation
+5. Follow the PRP validation gates
+
+## Learn More
+
+- [Archon CE Template Documentation](../../docs/)
+- [Python Language Hints](../../templates/language-hints/python.md)
+- [Workflow Documentation](../../docs/workflow.md)
+- [Usage Guide](../../docs/usage.md)
